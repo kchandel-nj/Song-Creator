@@ -38,3 +38,13 @@ print(a4.halfStepDown())
 print(a4.halfStepDown().frequency)
 print(a4.halfStepDown().halfStepDown())
 print(a4.halfStepDown().halfStepDown().frequency)
+
+# Check equality methods
+print(a4 == Note("A", 4))
+print(a4.__eq__(Note("A", 4)))
+
+print(a4 < a4.halfStepDown())
+print(a4 > a4.halfStepDown())
+
+print(a4 < a4.halfStepUp())
+print(a4 > a4.halfStepUp())

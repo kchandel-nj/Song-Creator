@@ -4,7 +4,7 @@ class Note:
     Docstring for Note
 
     A note is determined by the A note in its relative octave, as A4 is the base case of 12 TET.
-    Half steps are defined as the frequency * (2**(1/12))
+    Half steps are defined as the frequency * (2**(1/12)).
     """
 
     def __init__(self, name: str, octave: int, frequency: float = 0.0):
@@ -12,7 +12,7 @@ class Note:
         """
         Docstring for __init__
 
-        Creates a note object
+        Creates a note object.
         
         :param self: The object
         :param name: The name of the note
@@ -39,7 +39,7 @@ class Note:
         """
         Docstring for halfStepUp
 
-        Returns the next note up
+        Returns the next note up.
         
         :param self: The object
         :return: The note a half step up
@@ -57,8 +57,8 @@ class Note:
         """
         Docstring for _translateSharp
 
-        Ensures sharps aren't added twice and ensures B# and E# converted to the enharmonic value
-        Ensures G# loops back to A
+        Ensures sharps aren't added twice and ensures B# and E# converted to the enharmonic value.
+        Ensures G# loops back to A.
         
         :param self: The object
         :param name: The name to be translated
@@ -84,7 +84,7 @@ class Note:
         """
         Docstring for halfStepDown
 
-        Returns the next note down
+        Returns the next note down.
         
         :param self: The object
         :return: The note a half step down
@@ -102,8 +102,8 @@ class Note:
         """
         Docstring for _translateFlat
 
-        Ensures flats aren't added twice and ensures Cb and Fb converted to the enharmonic value
-        Ensures Ab loops back to G
+        Ensures flats aren't added twice and ensures Cb and Fb converted to the enharmonic value.
+        Ensures Ab loops back to G.
         
         :param self: The object
         :param name: The name to be translated
@@ -137,3 +137,57 @@ class Note:
         """
 
         return f"{self.name}{self.octave}"
+    
+    def __eq__(self, value: object) -> bool:
+        """
+        Docstring for __eq__
+        
+        Checks equality between a Note and another object.
+
+        :param self: The Note
+        :param value: The other object
+        :type value: object
+        :return: True if they are the same Note, False otherwise
+        :rtype: bool
+        """
+
+        if not isinstance(value, Note):
+            return False
+        else:
+            return self.name == value.name and self.octave == value.octave
+        
+    def __lt__(self, other: object) -> bool:
+        """
+        Docstring for __lt__
+        
+        Checks if a note is less than another object.
+
+        :param self: The Note
+        :param other: The other object
+        :type other: object
+        :return: True if the original has a lower frequency than the other, False if not, and NotImplemented if other is not a Note
+        :rtype: bool
+        """
+
+        if not isinstance(other, Note):
+            return NotImplemented
+        else:
+            return self.frequency < other.frequency
+        
+    def __gt__(self, other: object) -> bool:
+        """
+        Docstring for __gt__
+        
+        Checks if a note is greater than another object.
+
+        :param self: The Note
+        :param other: The other object
+        :type other: object
+        :return: True if the original has a higher frequency than the other, False if not, and NotImplemented if other is not a Note
+        :rtype: bool
+        """
+
+        if not isinstance(other, Note):
+            return NotImplemented
+        else:
+            return self.frequency > other.frequency

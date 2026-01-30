@@ -11,3 +11,7 @@ TODO: Need to find a way to define the frequency of a note given its name instea
 
 Creates the basic framework for the frequency player itself.
 Plays a frequency given the note and a duration.
+
+Version 0.2:
+Defined comparisons between notes.
+TODO is still TODO.

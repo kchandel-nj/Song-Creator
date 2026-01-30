@@ -9,14 +9,14 @@ class FrequencyPlayer:
     """
     Docstring for FrequencyPlayer
 
-    Plays a pitch given the note
+    Plays a pitch given the note.
     """
     
     def __init__(self):
         """
         Docstring for __init__
 
-        Prepares the object
+        Prepares the object.
         
         :param self: The object
         """
